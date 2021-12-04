@@ -1,10 +1,13 @@
 import random
+class Node():
+    def __init__(self,data = None) -> None:
+        self.data = data
+        self.next = None
+    
 
 class Linkedlist():  
     def __init__(self):
         self.head = None
-        self.temphead
-        self.temptail
 
     def settemphead(self):
         self.temhead = self.head
@@ -12,21 +15,26 @@ class Linkedlist():
 
     def nodecount(self):
         counter = 1
-        temp = self.settemphead()
-        while self.head.next!= None:
+        currentNode = self.head
+        while currentNode.head.next!= None:
             counter += 1
-            self.head = self.head.next
-        self.head = temp
+            currentNode.head = currentNode.head.next
         return counter
 
-    def addNodeInEnd(self):
+    def addNodeAtEnd(self):
+        temp = self.settemphead()
         randomnum = random.randint(1,101)
         addNode = Node(randomnum)
         while self.head.next!=None:
             self.head = self.head.next
         self.head.next = addNode
+        self.head = temp
 
-    def addNode
+    def addNodeAtBegin(self):
+        randomnum = random.randint(1,101)
+        addNode = Node(randomnum)
+        addNode.next = self.head
+        self.head = addNode
         
     def printallNode(self):
         temp = self.settemphead()
@@ -35,11 +43,9 @@ class Linkedlist():
             self.head = self.head.next
         self.head = temp
 
-
-class Node():
-    def __init__(self,data = None) -> None:
-        self.data = data
-        self.next = None
+    def insert(self,num):
+        counter = 1
+        while counter != num:
 
 
 if __name__ == '__main__':
@@ -49,14 +55,12 @@ if __name__ == '__main__':
     mylistlist1.head.next = Node("Kyle")
 
 
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
-    mylistlist1.addNodeInEnd()
+    mylistlist1.addNodeAtEnd()
+    mylistlist1.addNodeAtEnd()
+    mylistlist1.addNodeAtEnd()
+    mylistlist1.addNodeAtBegin()
+    mylistlist1.addNodeAtBegin()
+    mylistlist1.addNodeAtBegin()
     mylistlist1.printallNode()
     
     print(f'total elements in linked list are {mylistlist1.nodecount()}')
