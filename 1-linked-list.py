@@ -1,14 +1,16 @@
 import random
 
 class Linkedlist():  
-    def __init__(self) :
+    def __init__(self):
         self.head = None
+        self.temphead
+        self.temptail
 
     def settemphead(self):
-        temhead = self.head
-        return temhead
+        self.temhead = self.head
+        return self.temhead
 
-    def nodecounter(self):
+    def nodecount(self):
         counter = 1
         temp = self.settemphead()
         while self.head.next!= None:
@@ -18,13 +20,13 @@ class Linkedlist():
         return counter
 
     def addNodeInEnd(self):
-        temp = self.settemphead()
         randomnum = random.randint(1,101)
         addNode = Node(randomnum)
         while self.head.next!=None:
             self.head = self.head.next
         self.head.next = addNode
-        self.head = temp
+
+    def addNode
         
     def printallNode(self):
         temp = self.settemphead()
@@ -57,5 +59,5 @@ if __name__ == '__main__':
     mylistlist1.addNodeInEnd()
     mylistlist1.printallNode()
     
-    print(f'total elements in linked list are {mylistlist1.nodecounter()}')
+    print(f'total elements in linked list are {mylistlist1.nodecount()}')
     
