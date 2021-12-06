@@ -1,6 +1,3 @@
-from typing import Counter, NewType
-
-
 class Node:
     def __init__(self, data=None) -> None:
         self.data = data
