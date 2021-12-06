@@ -1,3 +1,9 @@
+def isNode(data):
+    if type(data) == Node:
+        return True
+    else: 
+        return False
+
 class Node:
     def __init__(self, data=None) -> None:
         self.data = data
@@ -66,7 +72,7 @@ class DoublyLinkedList:
             currentNode = currentNode.next
         print(currentNode)
 
-    def delNode(self, num):
+    def delNode(self, num ):
         if num == 1:
             currentNode = self.head
             currentNode.next.previous = None
@@ -87,6 +93,44 @@ class DoublyLinkedList:
             connectprevious.previous = connectnext
         self.count -= 1
 
+    def searchNode(self,data,isdel = 0 ):
+        isfound = False
+        foundNode = None
+        currentNode1 = self.head
+        currentNode2 = self.tail
+        while currentNode1 !=currentNode2 : 
+            if currentNode1.data == data:
+                isfound = True
+                foundNode = currentNode1
+                print(f'Found it {foundNode}')
+                break
+            elif currentNode2.data == data:
+                isfound = True
+                foundNode = currentNode2
+                print(f'Found it {foundNode}')
+                break
+            else:
+                currentNode1 = currentNode1.next
+                currentNode2 = currentNode2.previous
+        if isfound == False:
+            if currentNode1.data == data:
+                foundNode = currentNode1
+                print(f'Found it {foundNode}')
+                isfound = True
+                if isdel == 1:
+                    self.count -=1
+                    connectpre = foundNode.next
+                    connectnext = foundNode.previous
+                    connectpre.previous = connectnext
+                    connectnext.next = connectpre 
+                    print(f'{foundNode} Deleted')
+                    return foundNode
+                else:
+                    return foundNode
+            else:
+                print(f'Not found')
+                return None
+
 
 if __name__ == "__main__":
     myDoublyLinkedlist = DoublyLinkedList()
@@ -98,7 +142,9 @@ if __name__ == "__main__":
     myDoublyLinkedlist.insert_in_middle("Kerwin", 2)
     myDoublyLinkedlist.delNode(2)
     myDoublyLinkedlist.print_node_in_list()
+    myDoublyLinkedlist.searchNode('Elaine',1)
     print(myDoublyLinkedlist.count)
+    myDoublyLinkedlist.print_node_in_list()
     # initcialNode = Node("Elaine")
     # initcialNode2 = Node("Kyle")
     # initcialNode3 = Node('2')
