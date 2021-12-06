@@ -76,6 +76,7 @@ class SimpleLinkedList ():
             currentNode = copyList.head
         newlist.addInEnd(copyList.head.data)
         return newlist
+    
         
 
 if __name__ == "__main__":
