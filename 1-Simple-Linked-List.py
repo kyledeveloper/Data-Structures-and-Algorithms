@@ -5,6 +5,11 @@ class Node():
         self.data = data
         self.next = None
 
+def isNode(data):
+    if type(data) == Node:
+        return True
+    else:
+        return False
 class SimplyLinkedlist():  
     def __init__(self):
         self.head = None
@@ -24,12 +29,15 @@ class SimplyLinkedlist():
         
 
     def nodecount(self):
-        counter = 1
-        currentNode = self.head
-        while currentNode.next != None:
-            counter += 1
-            currentNode = currentNode.next
-        return counter
+        if self.head != None:
+            counter = 1
+            currentNode = self.head
+            while currentNode.next != None:
+                counter += 1
+                currentNode = currentNode.next
+            return counter
+        else:
+            return 0
 
     def addNodeAtEnd(self):
         currentNode = self.head
@@ -71,6 +79,10 @@ class SimplyLinkedlist():
                 counter +=1
             previousNode.next = currentNode.next
 
+    def cleanup(self):
+        while isNode(self.head.next):
+            self.delNode(1)
+        self.head = None
 
 
 if __name__ == '__main__':
@@ -88,9 +100,8 @@ if __name__ == '__main__':
     
     mylistlist1.insert(4)
     mylistlist1.delNode(-1)
-    mylistlist1.printallNode()
-
-
-    
+    mylistlist1.printallNode() 
     print(f'total elements in linked list are {mylistlist1.nodecount()}')
-    
+    mylistlist1.cleanup()
+    print(mylistlist1.nodecount())
+
