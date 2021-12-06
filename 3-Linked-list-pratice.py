@@ -1,5 +1,3 @@
-import random
-
 def isNode(data):
     if type(data) == Node:
         return True
