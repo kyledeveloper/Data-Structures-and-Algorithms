@@ -145,6 +145,7 @@ if __name__ == "__main__":
     myDoublyLinkedlist.searchNode('Elaine',1)
     print(myDoublyLinkedlist.count)
     myDoublyLinkedlist.print_node_in_list()
+ 
     # initcialNode = Node("Elaine")
     # initcialNode2 = Node("Kyle")
     # initcialNode3 = Node('2')
