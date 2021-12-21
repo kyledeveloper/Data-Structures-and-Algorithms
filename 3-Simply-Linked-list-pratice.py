@@ -105,13 +105,3 @@ if __name__ == "__main__":
     newList.foundNode('jask')
     newList.reverse().printNodeInList()
 
-
-class rewrite():
-    def __init__(self) -> None:
-        pass
-    def __eq__(self, __o: object) -> bool:
-        pass
-
-
-
-    
