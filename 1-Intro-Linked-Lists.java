@@ -1,11 +1,17 @@
 class Node{
-        int data;
-        Node next;
+        private int data;
+        private Node next;
+
         Node(int data){
             this.data = data;
-    }
+        }
+        
+        public void setNext(Node newNode) {
+            this.next = newNode;           
+        }
+
 }
-class linkedlists{
+class Linkedlists{
     void addNodeinEnd(Node head){
         
         Node newNode = new Node(3);

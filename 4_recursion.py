@@ -27,3 +27,15 @@ recursionSol = factorial_recur(4)
 print(recursionSol)
 loopSol = factorial_loop(4)
 print(loopSol)
+#  a way to think recurively is to found the very last step of the problem
+#  also you can consider n-1 is  
+
+def hanoi(nums,start,dest,temp):
+    if nums == 1:
+        print (f"move {nums} from {start} to {dest}")
+        return
+    hanoi(nums-1,start,temp,dest)
+    print(f"move {nums} from {start} to {dest}")
+    hanoi(nums-1,temp,dest,start)
+
+hanoi(3,"a","c","b")
