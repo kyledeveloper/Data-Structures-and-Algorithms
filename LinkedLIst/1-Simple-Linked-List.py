@@ -10,11 +10,12 @@ def isNode(data):
         return True
     else:
         return False
+
+
 class SimplyLinkedlist():  
     def __init__(self):
         self.head = None
     
-        
     def insert(self,num):
         currentNode = self.head
         counter = 1
