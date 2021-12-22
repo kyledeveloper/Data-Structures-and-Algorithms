@@ -24,6 +24,11 @@ class Linkedlist:
             self.head = newNode
             self.head.setNext(temp)
             return
+        if index == -1:
+            currentNode = self.head
+            while currentNode.next != None:
+                currentNode = currentNode.next
+            currentNode.setNext(newNode)
 
     def delete(self, index = 1):
         if index == 1:
