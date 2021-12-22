@@ -16,7 +16,7 @@ class Stack:
         print("---------")
 
     def getpeek(self):
-        return self.data.head.getdata    
+        return self.data.head.getdata() 
     
 
 if __name__=='__main__':
