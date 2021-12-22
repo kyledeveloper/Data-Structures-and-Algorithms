@@ -15,7 +15,7 @@ def ismatch(stack,symbols):
         return False
     
 def getUserinput():
-    return input('enter something')
+    return input('Enter something:\n')
 
 def checkbalance():
     balance = False

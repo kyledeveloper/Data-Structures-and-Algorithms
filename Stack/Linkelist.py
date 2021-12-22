@@ -44,8 +44,8 @@ class Linkedlist:
             return
         if index == -1:
             currentNode = self.head
-            while currentNode.next != None:
-                currentNode = currentNode.next
+            while currentNode.getNext() != None:
+                currentNode = currentNode.getNext()
             currentNode.setNext(newNode)
             return
         if isint(index):
@@ -60,12 +60,34 @@ class Linkedlist:
             return 
 
 
-    def delete(self, index = 1):
-        if index == 1:
+    def pop(self, index = 0):
+        if self.count == 0:
+            print("Emtpy, Nothing to delete")
+            return 
+        self.count -=1
+        if index == 0:
             temp = self.head
             self.head = self.head.next
-            self.count -=1
             return temp
+        elif index == -1:
+            currentNode = self.head
+            previousNode = None
+            while currentNode.getNext() != None:
+                previousNode = currentNode
+                currentNode = currentNode.getNext()
+            previousNode.setNext(None)
+            return currentNode
+        else:
+            currentNode = self.head
+            counter = 0
+            previousNode = None
+            while counter != index:
+                counter +=1
+                previousNode = currentNode
+                currentNode = currentNode.getNext()
+            previousNode.setNext(currentNode.getNext())
+            return currentNode
+                
     
     def printNodeinList(self):
         currentNode = self.head
@@ -80,4 +102,7 @@ if __name__ == '__main__':
     mylist.insert("elaine")
     mylist.insert("kk", 1)
     mylist.insert("ee", 3)
+    mylist.insert("hugo",-1)
+    mylist.printNodeinList()
+    mylist.pop(1)
     mylist.printNodeinList()
