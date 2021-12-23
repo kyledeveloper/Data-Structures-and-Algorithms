@@ -23,30 +23,31 @@ class Node:
     def getdata(self):
         return self.data
     
+    def hasNext(self):
+        return self.next != None
 
-class Linkedlist:
+class SimpleLinkedlist:
     def __init__(self) -> None:
         self.head = None
         self.count = 0
 
     def insert(self,data, index = 0):
         newNode = Node(data)
-        self.count +=1
+        
         if self.count == 0:
             self.head = newNode
+            self.count +=1
             return
         if index == 0 :
             temp = self.head
             self.head = newNode
-            self.head.setNext(temp)
-            return
-        if index == -1:
+            self.head.setNext(temp)       
+        elif index == -1:
             currentNode = self.head
             while currentNode.getNext() != None:
                 currentNode = currentNode.getNext()
             currentNode.setNext(newNode)
-            return
-        if isint(index):
+        else:
             counter = 0
             currentNode = self.head
             while counter != index-1:
@@ -55,8 +56,32 @@ class Linkedlist:
             temp = currentNode.next
             currentNode.setNext(newNode)
             currentNode.getNext().setNext(temp)
-            return 
 
+        self.count +=1
+        return 
+
+    def insertAtBegin(self,data):
+        newNode = Node(data)
+        if self.count == 0:
+            self.head = newNode
+            self.tail = newNode
+            self.count += 1
+            return self.head
+        else:
+            temp = self.head
+            self.head = newNode
+            self.head.setNext(temp)
+            self.count +=1
+            return self.head
+            
+
+    def inserAtEnd(self,data):
+        self.count += 1
+        newNode = Node(data)
+        currentNode = self.head
+        while currentNode.getNext() != None:
+            currentNode = currentNode.getNext()
+        currentNode.setNext(newNode)
 
     def pop(self, index = 0):
         if self.count == 0:
@@ -91,16 +116,31 @@ class Linkedlist:
         currentNode = self.head
         while currentNode != None:
             print(currentNode.getdata())
-            currentNode = currentNode.next
+            currentNode = currentNode.getNext()
+
+    def clear(self):
+        self.head = None
+    
+    def getlast(self):
+        num = 0
+        currentNode = self.head
+        while(num + 1  < self.count):
+            currentNode = currentNode.getNext()
+            print(num)
+            num += 1
+
+        return currentNode
+    
 
 
 if __name__ == '__main__':
-    mylist = Linkedlist()
+    mylist = SimpleLinkedlist()
     mylist.insert("kyle")
     mylist.insert("elaine")
     mylist.insert("kk", 1)
     mylist.insert("ee", 3)
     mylist.insert("hugo",-1)
     mylist.printNodeinList()
-    mylist.pop(1)
-    mylist.printNodeinList()
+    print(mylist.getlast().getdata())
+    print(mylist.getlast().hasNext())
+
