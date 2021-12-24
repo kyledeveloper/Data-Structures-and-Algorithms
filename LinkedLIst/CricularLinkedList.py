@@ -11,13 +11,13 @@ class CricularLinkedList(SimpleLinkedlist):
             currentNode.setNext(currentNode)
             self.tail = self.head
         else:
-            print(f'current tail: {self.tail.getdata()}')
-            print(f'current head: {self.head.getdata()}')
-  
             self.tail.setNext(self.head)
+
     def inserAtEnd(self, data):
+        currentNode = super().inserAtEnd(data)
+        # self.tail = currentNode
+        # currentNode.setNext(self.head)
         
-        return super().inserAtEnd(data)
 
     def printNodeinList(self):
         counter = 0
@@ -34,8 +34,10 @@ if __name__ == '__main__':
     mycl.insertAtBegin("hugo")
     mycl.insertAtBegin("mario")
     mycl.insertAtBegin("ee")
-    mycl.insertAtBegin("charles")
+    mycl.inserAtEnd("charles")
+    
     mycl.printNodeinList()
+    print("----")
     name = mycl.getlast().getdata()
     name1 = mycl.getlast().getNext().getdata()
     print(name)
