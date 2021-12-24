@@ -30,8 +30,9 @@ class SimpleLinkedlist:
     def __init__(self) -> None:
         self.head = None
         self.count = 0
-
-    def insert(self,data, index = 0):
+    # method to insert node, data takes the value, and index indicate the position of the node will be added to.
+    # the defaut value of index is -1 which indicate insert at the end. and if index is 0, indicate insert at the beginning. all any other number is insert ath n-th position in the linked list 
+    def insert(self,data, index = -1):
         newNode = Node(data)
         
         if self.count == 0:
@@ -81,7 +82,9 @@ class SimpleLinkedlist:
         currentNode = self.head
         while currentNode.getNext() != None:
             currentNode = currentNode.getNext()
+            print(1)
         currentNode.setNext(newNode)
+        return currentNode.getNext()
 
     def pop(self, index = 0):
         if self.count == 0:
@@ -126,7 +129,6 @@ class SimpleLinkedlist:
         currentNode = self.head
         while(num + 1  < self.count):
             currentNode = currentNode.getNext()
-            print(num)
             num += 1
 
         return currentNode
@@ -137,10 +139,11 @@ if __name__ == '__main__':
     mylist = SimpleLinkedlist()
     mylist.insert("kyle")
     mylist.insert("elaine")
-    mylist.insert("kk", 1)
-    mylist.insert("ee", 3)
-    mylist.insert("hugo",-1)
+    mylist.inserAtEnd("ee")
+    # mylist.insert("kk", 1)
+    # mylist.insert("ee", 3)
+    # mylist.insert("hugo",-1)
     mylist.printNodeinList()
-    print(mylist.getlast().getdata())
-    print(mylist.getlast().hasNext())
+    # print(mylist.getlast().getdata())
+    # print(mylist.getlast().hasNext())
 
