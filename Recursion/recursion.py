@@ -6,7 +6,6 @@
 # if we get infinite loop, it loop forever since no extra memory being used
 # recursion may obviously and easier to solve the problem
 
-
 def factorial_recur(num):
     # base case
     if num == 0:

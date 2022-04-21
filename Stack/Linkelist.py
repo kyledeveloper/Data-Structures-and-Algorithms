@@ -92,7 +92,7 @@ class Linkedlist:
         while currentNode != None:
             print(currentNode.getdata())
             currentNode = currentNode.next
-
+            
 
 if __name__ == '__main__':
     mylist = Linkedlist()

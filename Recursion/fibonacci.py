@@ -11,3 +11,11 @@ def fibonacci1_loop(n):
 
 f = fibonacci1_loop(6)
 print(f)
+
+def fibonacci_recur(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci_recur(n-1) + fibonacci_recur(n-2)
+
+print(fibonacci_recur(6))
